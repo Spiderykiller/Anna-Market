@@ -31,39 +31,30 @@ export default function Navbarpage() {
   return (
     <header className="bg-dark text-white border-bottom sticky-top">
       <div className="container-fluid px-2 px-lg-5">
-        <div className="d-flex align-items-center justify-content-between py-2 flex-nowrap gap-2">
 
-          {/* LEFT: LOGO + DESCRIPTION */}
-          <Link
-            href="/"
-            className="d-flex align-items-center gap-2 flex-shrink-0"
-          >
+        {/* ================= DESKTOP (LG+) ================= */}
+        <div className="d-none d-lg-flex align-items-center justify-content-between py-2 gap-3">
+
+          {/* LEFT */}
+          <Link href="/" className="d-flex align-items-center gap-2 flex-shrink-0">
             <Image
               src="/images/logo.png"
               alt="Anna Market Logo"
               width={40}
               height={40}
-              className="object-contain d-none d-sm-block"
+              className="object-contain"
             />
-            <Image
-              src="/images/logo.png"
-              alt="Anna Market Logo"
-              width={28}
-              height={28}
-              className="object-contain d-block d-sm-none"
-            />
-
             <div className="d-flex flex-column lh-1">
-              <span className="fw-bold fs-6 fs-lg-4">Anna Market</span>
-              <span className="fst-italic text-white-50 small d-block">
+              <span className="fw-bold fs-4">Anna Market</span>
+              <span className="fst-italic text-white-50 small">
                 Curated for your lifestyle
               </span>
             </div>
           </Link>
 
-          {/* CENTER: NAV */}
-          <nav className="flex-grow-1 mx-1">
-            <ul className="nav gap-2 align-items-center flex-nowrap overflow-auto navbar-scroll">
+          {/* CENTER */}
+          <nav className="flex-grow-1">
+            <ul className="nav justify-content-center gap-4">
               <NavItem href="/" icon={<FaHome />} label="Home" />
               <NavItem href="/categories/furniture" icon={<FaCouch />} label="Furniture" />
               <NavItem href="/categories/home-decor" icon={<FaPaintRoller />} label="Decor" />
@@ -72,29 +63,73 @@ export default function Navbarpage() {
             </ul>
           </nav>
 
-          {/* RIGHT: DROPDOWN */}
-          <div className="flex-shrink-0">
-            <div className="dropdown">
-              <button
-                className="btn btn-outline-light btn-sm"
-                type="button"
-                data-bs-toggle="dropdown"
-              >
-                <FaBars />
-              </button>
+          {/* RIGHT */}
+          <div className="dropdown">
+            <button
+              className="btn btn-outline-light btn-sm"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              <FaBars />
+            </button>
 
-              <ul className="dropdown-menu dropdown-menu-end shadow">
-                <DropdownItem href="/about" icon={<FaInfoCircle />} label="About Us" />
-                <DropdownItem href="/contact" icon={<FaPhone />} label="Contact Us" />
-                <li>
-                  <ThemeToggleDropdown />
-                </li>
-                <li><hr className="dropdown-divider" /></li>
-              </ul>
-            </div>
+            <ul className="dropdown-menu dropdown-menu-end shadow">
+              <DropdownItem href="/about" icon={<FaInfoCircle />} label="About Us" />
+              <DropdownItem href="/contact" icon={<FaPhone />} label="Contact Us" />
+              <li><ThemeToggleDropdown /></li>
+            </ul>
           </div>
-
         </div>
+
+        {/* ================= MOBILE (< LG) ================= */}
+
+        {/* ROW 1: LOGO + BRAND */}
+        <div className="d-flex d-lg-none align-items-center gap-2 py-2 animate-fade-in">
+          <Image
+            src="/images/logo.png"
+            alt="Anna Market Logo"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <div className="d-flex flex-column lh-1">
+            <span className="fw-bold fs-6">Anna Market</span>
+            <span className="fst-italic text-white-50 small">
+              Curated for your lifestyle
+            </span>
+          </div>
+        </div>
+
+        {/* ROW 2: NAV LINKS */}
+        <nav className="d-lg-none overflow-auto animate-slide-up">
+          <ul className="nav gap-3 py-1 flex-nowrap">
+            <NavItem href="/" icon={<FaHome />} label="Home" />
+            <NavItem href="/categories/furniture" icon={<FaCouch />} label="Furniture" />
+            <NavItem href="/categories/home-decor" icon={<FaPaintRoller />} label="Decor" />
+            <NavItem href="/products" icon={<FaProductHunt />} label="Products" />
+            <NavItem href="/categories/kitchen" icon={<FaUtensils />} label="Kitchen" />
+          </ul>
+        </nav>
+
+        {/* ROW 3: MENU BUTTON */}
+        <div className="d-flex d-lg-none justify-content-end py-2 animate-fade-in">
+          <div className="dropdown">
+            <button
+              className="btn btn-outline-light btn-sm"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              <FaBars />
+            </button>
+
+            <ul className="dropdown-menu dropdown-menu-end shadow">
+              <DropdownItem href="/about" icon={<FaInfoCircle />} label="About Us" />
+              <DropdownItem href="/contact" icon={<FaPhone />} label="Contact Us" />
+              <li><ThemeToggleDropdown /></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </header>
   );
@@ -117,7 +152,7 @@ function NavItem({
         href={href}
         className="nav-link text-white px-2 py-1 d-flex flex-column align-items-center"
       >
-        <span className="fs-6 fs-lg-5">{icon}</span>
+        <span className="fs-6">{icon}</span>
         <span className="small fw-semibold">{label}</span>
       </Link>
     </li>
@@ -145,6 +180,7 @@ function DropdownItem({
     </li>
   );
 }
+
 
 
 
