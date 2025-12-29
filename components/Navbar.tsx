@@ -31,31 +31,31 @@ export default function Navbarpage() {
   return (
     <header className="bg-dark text-white border-bottom sticky-top">
       <div className="container-fluid px-3 px-lg-5">
-        <div className="d-flex align-items-center justify-content-between py-2 gap-3 flex-wrap">
+        <div className="d-flex align-items-center justify-content-between py-2">
 
           {/* LEFT: LOGO */}
           <Link
             href="/"
-            className="text-decoration-none text-white d-flex align-items-center gap-2 flex-shrink-0"
+            className="d-flex align-items-center gap-2 flex-shrink-0"
           >
             <Image
               src="/images/logo.png"
               alt="Anna Market Logo"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
               className="object-contain"
             />
-            <div className="d-flex flex-column lh-1">
-              <span className="fw-bold fs-4">Anna Market</span>
-              <span className="fs-6 text-white-50 fst-italic">
+            <div className="d-none d-sm-flex flex-column lh-1">
+              <span className="fw-bold fs-6">Anna Market</span>
+              <span className="fs-7 text-white-50 fst-italic">
                 Curated for your lifestyle
               </span>
             </div>
           </Link>
 
           {/* CENTER: NAV */}
-          <nav className="flex-grow-1 mt-2 mt-lg-0">
-            <ul className="nav gap-3 align-items-center justify-content-start flex-nowrap overflow-auto overflow-lg-visible navbar-scroll">
+          <nav className="flex-grow-1 mx-2">
+            <ul className="nav gap-2 align-items-center justify-content-center flex-nowrap overflow-auto navbar-scroll">
               <NavItem href="/" icon={<FaHome />} label="Home" />
               <NavItem href="/categories/furniture" icon={<FaCouch />} label="Furniture" />
               <NavItem href="/categories/home-decor" icon={<FaPaintRoller />} label="Decor" />
@@ -64,22 +64,8 @@ export default function Navbarpage() {
             </ul>
           </nav>
 
-          {/* RIGHT: SEARCH + DROPDOWN */}
-          <div className="d-flex align-items-center gap-2 mt-2 mt-lg-0 flex-shrink-0">
-
-            {/* SEARCH (DESKTOP ONLY) */}
-            <form onSubmit={handleSearch} className="d-none d-lg-block">
-              <input
-                type="search"
-                className="form-control form-control-sm"
-                placeholder="Search products..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                style={{ width: 220 }}
-              />
-            </form>
-
-            {/* DROPDOWN (MOBILE/ALL SCREENS) */}
+          {/* RIGHT: DROPDOWN */}
+          <div className="d-flex align-items-center gap-2 flex-shrink-0">
             <div className="dropdown">
               <button
                 className="btn btn-outline-light btn-sm"
@@ -89,18 +75,17 @@ export default function Navbarpage() {
               >
                 <FaBars />
               </button>
-
               <ul className="dropdown-menu dropdown-menu-end shadow">
                 <DropdownItem href="/about" icon={<FaInfoCircle />} label="About Us" />
                 <DropdownItem href="/contact" icon={<FaPhone />} label="Contact Us" />
                 <li>
-                   <ThemeToggleDropdown />
+                  <ThemeToggleDropdown />
                 </li>
                 <li><hr className="dropdown-divider" /></li>
               </ul>
             </div>
-
           </div>
+
         </div>
       </div>
     </header>
@@ -119,7 +104,7 @@ function NavItem({
   label: string;
 }) {
   return (
-    <li className="nav-item text-center nav-3d flex-shrink-0">
+    <li className="nav-item text-center flex-shrink-0">
       <Link
         href={href}
         className="nav-link text-white px-2 py-1 d-flex flex-column align-items-center"
@@ -152,6 +137,7 @@ function DropdownItem({
     </li>
   );
 }
+
 
 
 
