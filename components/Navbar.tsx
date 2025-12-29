@@ -30,10 +30,10 @@ export default function Navbarpage() {
 
   return (
     <header className="bg-dark text-white border-bottom sticky-top">
-      <div className="container-fluid px-3 px-lg-5">
-        <div className="d-flex align-items-center justify-content-between py-2">
+      <div className="container-fluid px-2 px-sm-3 px-lg-5">
+        <div className="d-flex align-items-center justify-content-between py-2 flex-nowrap">
 
-          {/* LEFT: LOGO */}
+          {/* LEFT: LOGO + DESCRIPTION */}
           <Link
             href="/"
             className="d-flex align-items-center gap-2 flex-shrink-0"
@@ -45,7 +45,7 @@ export default function Navbarpage() {
               height={32}
               className="object-contain"
             />
-            <div className="d-none d-sm-flex flex-column lh-1">
+            <div className="d-flex flex-column lh-1" style={{ minWidth: 80 }}>
               <span className="fw-bold fs-6">Anna Market</span>
               <span className="fs-7 text-white-50 fst-italic">
                 Curated for your lifestyle
@@ -53,9 +53,9 @@ export default function Navbarpage() {
             </div>
           </Link>
 
-          {/* CENTER: NAV */}
+          {/* CENTER: NAVIGATION LINKS */}
           <nav className="flex-grow-1 mx-2">
-            <ul className="nav gap-2 align-items-center justify-content-center flex-nowrap overflow-auto navbar-scroll">
+            <ul className="nav gap-2 align-items-center flex-nowrap overflow-auto navbar-scroll">
               <NavItem href="/" icon={<FaHome />} label="Home" />
               <NavItem href="/categories/furniture" icon={<FaCouch />} label="Furniture" />
               <NavItem href="/categories/home-decor" icon={<FaPaintRoller />} label="Decor" />
@@ -104,7 +104,7 @@ function NavItem({
   label: string;
 }) {
   return (
-    <li className="nav-item text-center flex-shrink-0">
+    <li className="nav-item text-center flex-shrink-0" style={{ minWidth: 60 }}>
       <Link
         href={href}
         className="nav-link text-white px-2 py-1 d-flex flex-column align-items-center"
