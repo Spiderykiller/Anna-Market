@@ -55,7 +55,7 @@ export default function Navbarpage() {
 
           {/* CENTER: NAV (ALWAYS VISIBLE) */}
           <nav className="flex-grow-1 mx-3">
-            <ul className="nav gap-3 align-items-center justify-content-lg-center flex-nowrap overflow-auto navbar-scroll">
+            <ul className="nav gap-3 align-items-center justify-content-start flex-nowrap overflow-auto overflow-lg-visible navbar-scroll">
               <NavItem href="/" icon={<FaHome />} label="Home" />
               <NavItem href="/categories/furniture" icon={<FaCouch />} label="Furniture" />
               <NavItem href="/categories/home-decor" icon={<FaPaintRoller />} label="Decor" />
@@ -152,6 +152,7 @@ function DropdownItem({
     </li>
   );
 }
+
 
 
 

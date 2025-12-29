@@ -72,3 +72,12 @@ body {
     transform: translateX(100%);
   }
 }
+
+.navbar-scroll {
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  scroll-behavior: smooth; /* smooth scrolling on other devices */
+}
+
+.navbar-scroll::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
