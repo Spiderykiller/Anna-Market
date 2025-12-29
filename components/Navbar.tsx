@@ -30,17 +30,17 @@ export default function Navbarpage() {
 
   return (
     <header className="bg-dark text-white border-bottom sticky-top">
-      <div className="container-fluid px-4 px-lg-5">
-        <div className="d-flex align-items-center justify-content-between py-2 gap-3">
+      <div className="container-fluid px-3 px-lg-5">
+        <div className="d-flex align-items-center justify-content-between py-2 gap-3 flex-wrap">
 
           {/* LEFT: LOGO */}
           <Link
             href="/"
-            className="text-decoration-none text-white d-flex align-items-center gap-2"
+            className="text-decoration-none text-white d-flex align-items-center gap-2 flex-shrink-0"
           >
             <Image
               src="/images/logo.png"
-              alt="Puma Logo"
+              alt="Anna Market Logo"
               width={40}
               height={40}
               className="object-contain"
@@ -53,8 +53,8 @@ export default function Navbarpage() {
             </div>
           </Link>
 
-          {/* CENTER: NAV (ALWAYS VISIBLE) */}
-          <nav className="flex-grow-1 mx-3">
+          {/* CENTER: NAV */}
+          <nav className="flex-grow-1 mt-2 mt-lg-0">
             <ul className="nav gap-3 align-items-center justify-content-start flex-nowrap overflow-auto overflow-lg-visible navbar-scroll">
               <NavItem href="/" icon={<FaHome />} label="Home" />
               <NavItem href="/categories/furniture" icon={<FaCouch />} label="Furniture" />
@@ -65,9 +65,9 @@ export default function Navbarpage() {
           </nav>
 
           {/* RIGHT: SEARCH + DROPDOWN */}
-          <div className="d-flex align-items-center gap-3">
+          <div className="d-flex align-items-center gap-2 mt-2 mt-lg-0 flex-shrink-0">
 
-            {/* SEARCH (DESKTOP) */}
+            {/* SEARCH (DESKTOP ONLY) */}
             <form onSubmit={handleSearch} className="d-none d-lg-block">
               <input
                 type="search"
@@ -79,7 +79,7 @@ export default function Navbarpage() {
               />
             </form>
 
-            {/* DROPDOWN (ABOUT / CONTACT) */}
+            {/* DROPDOWN (MOBILE/ALL SCREENS) */}
             <div className="dropdown">
               <button
                 className="btn btn-outline-light btn-sm"
@@ -119,7 +119,7 @@ function NavItem({
   label: string;
 }) {
   return (
-    <li className="nav-item text-center nav-3d">
+    <li className="nav-item text-center nav-3d flex-shrink-0">
       <Link
         href={href}
         className="nav-link text-white px-2 py-1 d-flex flex-column align-items-center"
@@ -152,6 +152,7 @@ function DropdownItem({
     </li>
   );
 }
+
 
 
 
