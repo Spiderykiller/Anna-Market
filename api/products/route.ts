@@ -28,12 +28,12 @@ export async function POST(req: Request) {
     name: string;
     description: string;
     category: string;
-    images: string[];
+    image: string;
     price?: number;
   } = await req.json();
 
   // Validate required fields
-  if (!body.name || !body.description || !body.category || !body.images) {
+  if (!body.name || !body.description || !body.category || !body.image) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
@@ -46,11 +46,12 @@ export async function POST(req: Request) {
       name: body.name,
       description: body.description,
       category: body.category,
-      images: body.images,
-      price: body.price, // optional
+      image: body.image,
+      price: body.price ? String(body.price) : "0",
     },
   });
 
   return NextResponse.json(product);
 }
+
 
