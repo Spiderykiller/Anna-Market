@@ -30,7 +30,7 @@ export default function Navbarpage() {
 
   return (
     <header className="bg-dark text-white border-bottom sticky-top">
-      <div className="container-fluid px-2 px-sm-3 px-lg-5">
+      <div className="container-fluid px-2 px-lg-5">
         <div className="d-flex align-items-center justify-content-between py-2 flex-nowrap">
 
           {/* LEFT: LOGO + DESCRIPTION */}
@@ -38,16 +38,18 @@ export default function Navbarpage() {
             href="/"
             className="d-flex align-items-center gap-2 flex-shrink-0"
           >
+            {/* Logo smaller on mobile */}
             <Image
               src="/images/logo.png"
               alt="Anna Market Logo"
-              width={32}
-              height={32}
+              width={window.innerWidth < 576 ? 28 : 40} // smaller on xs screens
+              height={window.innerWidth < 576 ? 28 : 40}
               className="object-contain"
             />
-            <div className="d-flex flex-column lh-1" style={{ minWidth: 80 }}>
-              <span className="fw-bold fs-6">Anna Market</span>
-              <span className="fs-7 text-white-50 fst-italic">
+            {/* Description smaller text on mobile */}
+            <div className="d-flex flex-column lh-1">
+              <span className={`fw-bold ${window.innerWidth < 576 ? 'fs-7' : 'fs-4'}`}>Anna Market</span>
+              <span className={`fst-italic text-white-50 ${window.innerWidth < 576 ? 'fs-8' : 'fs-6'}`}>
                 Curated for your lifestyle
               </span>
             </div>
@@ -73,7 +75,7 @@ export default function Navbarpage() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <FaBars />
+                <FaBars size={window.innerWidth < 576 ? 14 : 18} />
               </button>
               <ul className="dropdown-menu dropdown-menu-end shadow">
                 <DropdownItem href="/about" icon={<FaInfoCircle />} label="About Us" />
@@ -103,14 +105,16 @@ function NavItem({
   icon: React.ReactNode;
   label: string;
 }) {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 576;
+
   return (
-    <li className="nav-item text-center flex-shrink-0" style={{ minWidth: 60 }}>
+    <li className="nav-item text-center flex-shrink-0" style={{ minWidth: isMobile ? 50 : 60 }}>
       <Link
         href={href}
-        className="nav-link text-white px-2 py-1 d-flex flex-column align-items-center"
+        className={`nav-link text-white px-2 py-1 d-flex flex-column align-items-center ${isMobile ? 'fs-8' : ''}`}
       >
-        <span className="fs-5 mb-1">{icon}</span>
-        <span className="small fw-semibold">{label}</span>
+        <span className={`mb-1 ${isMobile ? 'fs-6' : 'fs-5'}`}>{icon}</span>
+        <span className={`small fw-semibold ${isMobile ? 'fs-8' : ''}`}>{label}</span>
       </Link>
     </li>
   );
@@ -137,6 +141,7 @@ function DropdownItem({
     </li>
   );
 }
+
 
 
 
