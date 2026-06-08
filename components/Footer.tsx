@@ -52,7 +52,7 @@ export default function Footer() {
                 href="tel:+251913747191"
                 className="hover:text-amber-400 transition-colors"
               >
-                  +251913747191
+                  <span>+251913747191</span>
               </a>
               
                 href="mailto:Annafurniture00@gmail.com"
