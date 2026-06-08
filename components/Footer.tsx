@@ -46,21 +46,21 @@ export default function Footer() {
           {/* Contact + Socials */}
           <div>
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
-            <address className="not-italic text-sm flex flex-col gap-2 leading-relaxed">
+            <div className="not-italic text-sm flex flex-col gap-2 leading-relaxed">
               <span>Wesen, Addis Ababa, Ethiopia</span>
               
                 href="tel:+251913747191"
                 className="hover:text-amber-400 transition-colors"
               >
-                  <span>+251913747191</span>
+                  +251913747191
               </a>
               
                 href="mailto:Annafurniture00@gmail.com"
                 className="hover:text-amber-400 transition-colors"
               >
-                <span>Annafurniture00@gmail.com</span>
+                 Annafurniture00@gmail.com
               </a>
-            </address>
+            </div>
 
             {/* Social icons */}
             <div className="flex gap-4 mt-5 text-xl">
