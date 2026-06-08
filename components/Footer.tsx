@@ -64,7 +64,7 @@ export default function Footer() {
 
             {/* Social icons */}
             <div className="flex gap-4 mt-5 text-xl">
-              
+              <a
                 href="https://t.me/annahomes1"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -73,7 +73,7 @@ export default function Footer() {
               >
                 <FaTelegramPlane />
               </a>
-              
+              <a
                 href="https://www.instagram.com/AnnaMarket"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,7 +82,7 @@ export default function Footer() {
               >
                 <FaInstagram />
               </a>
-              
+              <a
                 href="https://vm.tiktok.com/ZMDLsMbFJ/"
                 target="_blank"
                 rel="noopener noreferrer"
